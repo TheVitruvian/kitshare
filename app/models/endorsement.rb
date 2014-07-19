@@ -11,4 +11,6 @@ class endoursement < ActiveRecord::Base
   #ownership
   belongs_to :user
 
+  #after save update of user endoursement created
+
 end

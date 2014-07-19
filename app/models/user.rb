@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  attr_accessible :first_name, :last_name, :user_name, :address, :postcode, :rating, :top_3_endorsements, :insurance, :profile_picture, :replies_percentage, :email, :password, :password_confirmation, :remember_me, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip
+  attr_accessible :first_name, :last_name, :user_name, :address, :postcode, :rating, 
+                  :top_3_endorsements, :insurance, :profile_picture, :replies_percentage, :email, 
+                  :password, :password_confirmation, :remember_me, :reset_password_token, 
+                  :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, 
+                  :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :role
 
 
 
@@ -21,7 +25,7 @@ class User < ActiveRecord::Base
   validates :postcode, :presence => {:message => 'We need to know where the kit is located!'}
 
   #image uploader
-  #mount_uploader :profile_picture, ImageUploader
+  mount_uploader :profile_picture, ImageUploader
 
   #ownerships
   has_many  :equipments
