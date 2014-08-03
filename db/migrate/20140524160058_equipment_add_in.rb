@@ -2,9 +2,9 @@ class EquipmentAddIn < ActiveRecord::Migration
   def change
     
     create_table :equipment do |t|
-      t.references  :user
+      t.belongs_to  :user
       t.string      :category
-      t.string      :type
+      t.string      :kind
       t.float       :daily_price
       t.float       :weekly_price
       t.float       :monthly_price
