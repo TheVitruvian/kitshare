@@ -31,7 +31,7 @@ gem 'authlogic', :git => 'git://github.com/binarylogic/authlogic.git'
 gem "textacular", '~> 3.0'
 gem 'jquery-rails'
 
-gem 'cancan'
+gem 'cancancan', '~> 1.9'
 gem "omniauth"
 gem "omniauth-linkedin-oauth2"
 gem "ckeditor_rails"
@@ -48,7 +48,7 @@ group :development, :test do
   
   gem 'annotate'
   gem 'quiet_assets'
-  gem 'better_errors'
+  # gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem "rspec-rails"
