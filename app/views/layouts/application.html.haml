@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title Kitshare
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:700,900italic", rel: "stylesheet", type: "text/css"
+
+  %body 
+    %header.top-bar
+      %span.logo-top="Kit"
+      %span.logo-bottom="Share"
+      %span.social-media
+        = link_to image_tag("facebook-3-48.png"), "https://www.facebook.com/Kitshare"
+        = link_to image_tag("twitter-3-48.png"), "https://twitter.com/kitshare"
+        = link_to image_tag("blogger-3-48.png"), "http://blog.kitshare.org"
+      %hr
+      .flash
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
+
+  %section    
+    = yield
