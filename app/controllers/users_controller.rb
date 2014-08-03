@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @user = User.first
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,5 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user= User.find(params[:id])
+
   end
 end

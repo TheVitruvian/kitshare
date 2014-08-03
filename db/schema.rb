@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20140719193222) do
   create_table "equipment", :force => true do |t|
     t.integer  "user_id"
     t.string   "category"
-    t.string   "type"
+    t.string   "kind"
     t.float    "daily_price"
     t.float    "weekly_price"
     t.float    "monthly_price"
@@ -106,9 +106,11 @@ ActiveRecord::Schema.define(:version => 20140719193222) do
 
   add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"
 
-  create_table "rental", :force => true do |t|
+  create_table "rentals", :force => true do |t|
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
+    t.integer  "renter_id"
     t.integer  "equipment_id"
     t.date     "start_date"
     t.date     "end_date"

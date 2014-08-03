@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
   has_many  :equipments
   has_many  :ratings, through: :equipments
   has_many  :rentals
-  has_many  :rentals, through: :equipments
   has_many  :insurance_policies
   has_many  :insurance_claims, through: :insurance_policies
   has_many  :endorsements

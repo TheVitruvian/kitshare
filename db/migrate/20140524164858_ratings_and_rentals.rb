@@ -9,15 +9,16 @@ class RatingsAndRentals < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :rental do |t|
+    create_table :rentals do |t|
       t.timestamps
-
-      t.belongs_to :equipment
-      t.date      :start_date
-      t.date      :end_date
-      t.float     :cost
-      t.boolean   :confirmed
-      t.string    :status
+      t.belongs_to :user
+      t.references :renter
+      t.references :equipment
+      t.date       :start_date
+      t.date       :end_date
+      t.float      :cost
+      t.boolean    :confirmed
+      t.string     :status
     end
   end
 end
