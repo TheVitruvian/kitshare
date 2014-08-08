@@ -22,6 +22,7 @@ end
 gem 'mailboxer'
 
 gem "haml-rails"
+gem 'html2haml'
 gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'authlogic', :git => 'git://github.com/binarylogic/authlogic.git'
@@ -45,7 +46,7 @@ group :development, :test do
   
   gem 'annotate'
   gem 'quiet_assets'
-  # gem 'better_errors'
+  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem "rspec-rails"
