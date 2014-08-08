@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   #ownerships
   has_many  :equipments
-  has_many  :ratings, through: :equipments
+  has_many  :equipment_ratings, through: :equipments
   has_many  :rentals
   has_many  :insurance_policies
   has_many  :insurance_claims, through: :insurance_policies

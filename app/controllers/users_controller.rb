@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    binding.pry
     @user = User.first
+
 
     respond_to do |format|
       format.html # index.html.erb

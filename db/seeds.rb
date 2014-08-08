@@ -29,6 +29,8 @@ equipment1 = Equipment.create!(category: "Skiing",
                                 insurance_required: true, 
                                 location: "SW120DF")
 
+equipmentrating1 = EquipmentRating.create!(rating: 4, content: "Great skis, worth every penny!", author_id: 2)
+
 endorsement1 = Endorsement.create!(user_id: 1, author_id: 2, rating: 5, content: "Awesome chap!")
 
 rental1 = Rental.create!(renter_id: 1, start_date: "2014-08-03", end_date: "2014-08-06", cost: 233, status: "open")
@@ -36,16 +38,23 @@ rental2 = Rental.create!(renter_id: 2, start_date: "2014-08-08", end_date: "2014
 
 insurance = InsurancePolicy.create!(policy_number: 1, price: 20, start_date: "2014-08-08", end_date: "2015-08-08")
 claim = InsuranceClaim.create!(claim_number: 001, cost: 302, closed: true, closed_date: "2014-08-08")
+
+
 insurance.insurance_claims << claim
 user.insurance_policies << insurance
 
 user.equipments << equipment1
+
 user.endorsements << endorsement1
 user2.rentals << rental1
 
 
 equipment1.rentals << rental1
 equipment1.rentals << rental2
+equipment1.equipment_ratings << equipmentrating1
 
 user.rentals << rental1
 user.rentals << rental2
+
+
+
