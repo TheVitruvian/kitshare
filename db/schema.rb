@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20140719193222) do
     t.datetime "updated_at",         :null => false
   end
 
-  create_table "equipment_rating", :force => true do |t|
+  create_table "equipment_ratings", :force => true do |t|
     t.integer  "equipment_id"
     t.float    "rating"
     t.text     "content"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20140719193222) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "insurance_claim", :force => true do |t|
+  create_table "insurance_claims", :force => true do |t|
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "claim_number"
@@ -63,9 +63,10 @@ ActiveRecord::Schema.define(:version => 20140719193222) do
     t.integer  "insurance_policy_id"
   end
 
-  create_table "insurance_policy", :force => true do |t|
+  create_table "insurance_policies", :force => true do |t|
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
     t.integer  "policy_number"
     t.float    "price"
     t.date     "start_date"
