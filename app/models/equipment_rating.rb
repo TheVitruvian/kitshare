@@ -1,4 +1,4 @@
-class Equipment_Rating < ActiveRecord::Base
+class EquipmentRating < ActiveRecord::Base
   #attributes
   attr_accessible :rating, :content
 
@@ -8,10 +8,5 @@ class Equipment_Rating < ActiveRecord::Base
   #ownership
   belongs_to :equipment
   belongs_to :user
-  belongs_to :user, through: :equipment
-
-
-
-  
 
 end

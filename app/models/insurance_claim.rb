@@ -7,5 +7,7 @@ class InsuranceClaim < ActiveRecord::Base
 
 
   #ownership
+  belongs_to :insurance_policy
+  
 
 end

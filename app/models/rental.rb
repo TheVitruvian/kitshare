@@ -13,6 +13,7 @@ class Rental < ActiveRecord::Base
   
   #ownership
   belongs_to :user
+  belongs_to :renter, class_name: "User", :foreign_key => 'renter_id'
   belongs_to :equipment
 
   

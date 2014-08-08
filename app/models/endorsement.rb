@@ -10,6 +10,7 @@ class Endorsement < ActiveRecord::Base
 
   #ownership
   belongs_to :user
+  belongs_to :author, class_name: "User", :foreign_key => 'author_id'
 
   #after save update of user endoursement created
 

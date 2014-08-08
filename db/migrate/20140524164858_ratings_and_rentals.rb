@@ -1,6 +1,6 @@
 class RatingsAndRentals < ActiveRecord::Migration
   def change
-    create_table :equipment_rating do |t|
+    create_table :equipment_ratings do |t|
       t.belongs_to  :equipment
       t.float       :rating
       t.text        :content
