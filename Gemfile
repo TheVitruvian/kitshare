@@ -28,6 +28,7 @@ gem "omniauth-google-oauth2"
 gem 'authlogic', :git => 'git://github.com/binarylogic/authlogic.git'
 gem "textacular", '~> 3.0'
 gem 'jquery-rails'
+gem 'simple_form'
 
 gem 'cancancan', '~> 1.9'
 gem "omniauth"
