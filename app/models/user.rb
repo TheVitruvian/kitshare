@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   has_many  :endorsements
 
   #callback to cache ratings and last 3 endorsements.
-
+  private
 
   #mailboxer functions
   def name
@@ -44,13 +44,20 @@ class User < ActiveRecord::Base
   end
 
   def mailboxer_email(object)
-  #Check if an email should be sent for that object
-  #if true
-  email
-  #if false
-  #return nil
-end
+    #Check if an email should be sent for that object
+    #if true
+    email
+    #if false
+    #return nil
+  end
 
+  #update top 3 endorsements
+  def update_endorsements   
+    top_3_endorsements = self.endorsements LIMIT 3
+  end
 
+  def update_rating
+    # rating = self.endoursements.ratings #include average block
+  end
 
 end

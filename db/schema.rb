@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(:version => 20140719193222) do
     t.boolean  "insurance"
     t.text     "profile_picture"
     t.float    "replies_percentage"
+    t.integer  "kitshare_points"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false

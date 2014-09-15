@@ -12,6 +12,7 @@ class InitialSetupOfUsers < ActiveRecord::Migration
       t.boolean :insurance
       t.text    :profile_picture
       t.float   :replies_percentage
+      t.integer :kitshare_points
 
       t.timestamps
     end
