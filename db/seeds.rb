@@ -33,8 +33,8 @@ equipmentrating1 = EquipmentRating.create!(rating: 4, content: "Great skis, wort
 
 endorsement1 = Endorsement.create!(user_id: 1, author_id: 2, rating: 5, content: "Awesome chap!")
 
-rental1 = Rental.create!(renter_id: 1, start_date: "2014-08-03", end_date: "2014-08-06", cost: 233, status: "open")
-rental2 = Rental.create!(renter_id: 2, start_date: "2014-08-08", end_date: "2014-08-09", cost: 133, status: "open")
+rental1 = Rental.create!(renter_id: 1, start_date: "2014-08-03", end_date: "2014-08-06", cost: 233, status: "open", equipment_id: 1)
+rental2 = Rental.create!(renter_id: 2, start_date: "2014-08-08", end_date: "2014-08-09", cost: 133, status: "open", equipment_id: 1)
 
 insurance = InsurancePolicy.create!(policy_number: 1, price: 20, start_date: "2014-08-08", end_date: "2015-08-08")
 claim = InsuranceClaim.create!(claim_number: 001, cost: 302, closed: true, closed_date: "2014-08-08")
