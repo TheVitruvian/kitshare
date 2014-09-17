@@ -19,11 +19,14 @@
 
 .logo-top {
   font-size: 6em;
-  padding-left: 10%;
+  
   color: #67cae9;
   font-family: 'Harabara';
   letter-spacing: 2px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  a { 
+    text-decoration: none; color: #67cae9;
+  }
 }
 
 .logo-bottom{
@@ -31,6 +34,9 @@
   font-family: 'Harabara';
   color: #67cae9;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  a { 
+    text-decoration: none; color: #67cae9;
+  }
 }
 
 .slides-pagination a {
@@ -52,7 +58,7 @@
     display: none;
   }
   .social-media{
-    visibility: none;
+    display: none;
   }
 }
 #slides {
@@ -147,14 +153,6 @@
   text-decoration: none;
 }
 
-.container {
-  position: relative;
-  width: 60%;
-  max-width: 600px;
-  top: 13%;
-  padding: 10px 20px;
-}
-
 .headline{
   font-family: 'Harabara';
   color: white;
@@ -176,13 +174,12 @@
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  margin-top: 10px;
-  margin-left: 18%;
+  margin-top: 3%;
+  max-width: 550px;
 }
 
-.social-media{
+.nav-links{
   float: right;
-  padding-right: 10%;
     a {
     text-decoration: none;
     color: white;
@@ -209,4 +206,8 @@
   background-color: #67cae9;
   color: white;
   text-align: center;
+}
+
+.header-padding {
+  padding-top: 90px;
 }
