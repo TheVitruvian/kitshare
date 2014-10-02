@@ -1,10 +1,5 @@
-%body.slideshow
-#slides
-  %ul.slides-container
-    %li
-      %img=image_tag "http://upload.wikimedia.org/wikipedia/commons/6/62/VW_K%C3%A4fer_mit_Ski.jpg"
-      .container.header-padding
-        - @user.equipments.each do |equipment|
-          %h1.headline= "Type: #{equipment.kind}"
-          %h1.headline= "Condition: #{equipment.condition}"
+
+- @user.equipments.each do |equipment|
+  %h1.headline= "Type: #{equipment.kind}"
+  %h1.headline= "Condition: #{equipment.condition}"
 
