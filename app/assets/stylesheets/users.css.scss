@@ -9,7 +9,11 @@
     font-style: normal;
 }
 
-
+@media screen and (max-width: 767px) {
+  .slides-navigation {
+    display: none;
+  }
+}
 
 .logo{
   font-size: 1.5em;
@@ -157,6 +161,11 @@
   border-radius: 3px;
   margin-top: 3%;
   max-width: 550px;
+}
+
+.absolute {
+  position: absolute;
+  z-index: 10;
 }
 
 .nav-links{

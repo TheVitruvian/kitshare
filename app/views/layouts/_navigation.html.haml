@@ -1,13 +1,27 @@
 -# navigation styled for Zurb Foundation 5
 -# the syntax for data-topbar may need to change for Zurb Foundation 5
 .contain-to-grid
-  %nav.top-bar{"data-topbar" => true}
-    %ul.title-area
-      %li.name
-        .logo=link_to "Kitshare", (root_url)
-      %li.toggle-topbar.menu-icon
-        %a{:href => "#"}
-          Menu
-    .top-bar-section
-      %ul
-        = render 'layouts/navigation_links'
+  -if !current_user
+
+    %nav.top-bar.absolute{"data-topbar" => true}
+      %ul.title-area
+        %li.name
+          .logo=link_to "Kitshare", (root_url)
+        %li.toggle-topbar.menu-icon
+          %a{:href => "#"}
+            Menu
+      .top-bar-section
+        %ul
+          = render 'layouts/navigation_links'
+
+  -else
+    %nav.top-bar{"data-topbar" => true}
+      %ul.title-area
+        %li.name
+          .logo=link_to "Kitshare", (root_url)
+        %li.toggle-topbar.menu-icon
+          %a{:href => "#"}
+            Menu
+      .top-bar-section
+        %ul
+          = render 'layouts/navigation_links'
