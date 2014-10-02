@@ -9,31 +9,11 @@
     font-style: normal;
 }
 
-
-.top-bar {
-  color: white;
-  position: fixed !important;
-  width: 100%;
-  z-index: 10;
-  padding-top: 2em;
-  }
-
-.logo-top {
-  font-size: 6em;
-  
+.logo{
+  font-size: 1.5em;
   color: #67cae9;
   font-family: 'Harabara';
   letter-spacing: 2px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  a { 
-    text-decoration: none; color: #67cae9;
-  }
-}
-
-.logo-bottom{
-  font-size: 3em;
-  font-family: 'Harabara';
-  color: #67cae9;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   a { 
     text-decoration: none; color: #67cae9;
@@ -54,20 +34,17 @@
   background: white;
 }
 
-@media screen and (max-width: 767px) {
-  .slides-navigation {
-    display: none;
-  }
-  .social-media{
-    display: none;
-  }
+.social-media{
+  height: 38px;
 }
+
 #slides {
   position: relative;
 }
 #slides .slides-container {
   display: none;
 }
+
 #slides .scrollable {
   *zoom: 1;
   position: relative;
@@ -77,6 +54,7 @@
   -webkit-overflow-scrolling: touch;
   height: 100%;
 }
+
 #slides .scrollable:after {
   content: "";
   display: table;
@@ -138,7 +116,7 @@
 
 .icon-chevron-left:before {
   content: '\2039';
-  font-size: 15em;
+  font-size: 10em;
   z-index: 3;
   font-family: 'harabara';
   color: white;
@@ -147,7 +125,7 @@
 
 .icon-chevron-right:before {
   content: '\203a';
-  font-size: 15em;
+  font-size: 10em;
   z-index: 3;
   font-family: 'harabara';
   color: white;

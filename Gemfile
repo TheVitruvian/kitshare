@@ -20,7 +20,7 @@ group :assets do
 end
 
 gem 'mailboxer'
-
+gem 'foundation-rails'
 gem "haml-rails"
 gem 'html2haml'
 gem 'devise'
@@ -44,7 +44,7 @@ gem "nifty-generators", :group => :development
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
-  
+  gem 'rails_layout'
   gem 'annotate'
   gem 'quiet_assets'
   gem 'better_errors'

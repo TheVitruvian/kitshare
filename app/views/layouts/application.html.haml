@@ -1,48 +1,21 @@
 !!!
 %html
   %head
-    %title Kitshare
-    = stylesheet_link_tag "application", :media => "all"
-    = javascript_include_tag "application"
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= content_for?(:title) ? yield(:title) : 'Kitshare'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Kitshare'}"}
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    -# Modernizr is required for Zurb Foundation
+    = javascript_include_tag 'vendor/modernizr'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:700,900italic|Droid+Sans:400,700", rel: "stylesheet", type: "text/css"
-
   %body
-    %header.top-bar.animated.fadeInDown
-      .container
-        %span.logo-top= link_to "Kit", root_url
-        %span.logo-bottom= link_to "Share", root_url
-        -if current_user
-          %span.nav-links
-            = link_to "Add Some Kit", new_equipment_path
-            |
-            = link_to "Rent Some Kit", "#"
-            |
-            = link_to "#{current_user.user_name} DROPDOWN? ", root_url
-            = link_to "signout TEMP", send("destroy_user_session_path"), method: :delete
-            = link_to image_tag("facebook-3-48.png"), "https://www.facebook.com/Kitshare", class: "social-media"
-            = link_to image_tag("twitter-3-48.png"), "https://twitter.com/kitshare", class: "social-media"
-            = link_to image_tag("blogger-3-48.png"), "http://blog.kitshare.org", class: "social-media"  
-            
-
-        -else
-          %span.nav-links
-            = link_to "Log In", new_user_session_path
-            |
-            = link_to "Sign Up", new_user_registration_path
-            |
-            = link_to "How it works", root_url
-
-            = link_to image_tag("facebook-3-48.png"), "https://www.facebook.com/Kitshare", class: "social-media"
-            = link_to image_tag("twitter-3-48.png"), "https://twitter.com/kitshare", class: "social-media"
-            = link_to image_tag("blogger-3-48.png"), "http://blog.kitshare.org", class: "social-media"
-        %hr
-
-
-        
-      .flash
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash_#{name}"
+    %header
+      = render 'layouts/navigation'
+    %main{:role => "main"}
+      = render 'layouts/messages'
+    
 
     %section    
       = yield
