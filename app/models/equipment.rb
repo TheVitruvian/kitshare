@@ -1,7 +1,11 @@
 class Equipment < ActiveRecord::Base
 
   #attributes
-  attr_accessible :user, :category, :kind, :daily_price, :weekly_price, :monthly_price, :condition, :description, :insurance_required, :location, :photo
+  attr_accessible :user, :category, :kind, :daily_price, :weekly_price, :monthly_price, :condition, :description, :insurance_required, :location, :photo, :longtitude, :latitude
+
+  #geocoder
+  geocoded_by :location
+  after_validation :geocode, :if => :location_changed?
 
   #validations
   validates :category, :presence => {:message => 'Please input a category'}
@@ -12,5 +16,7 @@ class Equipment < ActiveRecord::Base
   has_many :rentals
   has_many :equipment_ratings
   belongs_to :user
+
+
 
 end

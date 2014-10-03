@@ -29,7 +29,8 @@ gem 'authlogic', :git => 'git://github.com/binarylogic/authlogic.git'
 gem "textacular", '~> 3.0'
 gem 'jquery-rails'
 gem 'simple_form'
-
+gem 'geocoder'
+gem 'gmaps4rails'
 gem 'cancancan', '~> 1.9'
 gem "omniauth"
 gem "omniauth-linkedin-oauth2"

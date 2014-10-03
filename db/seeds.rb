@@ -28,6 +28,15 @@ equipment1 = Equipment.create!(category: "Skiing",
                                 description: "Lorum Ipsum", 
                                 insurance_required: true, 
                                 location: "SW120DF")
+equipment2 = Equipment.create!(category: "Skiing", 
+                                kind: "Skis", 
+                                daily_price: 30, 
+                                weekly_price: 90, 
+                                monthly_price: 300, 
+                                condition: "good", 
+                                description: "Lorum Ipsum", 
+                                insurance_required: true, 
+                                location: "London")
 
 equipmentrating1 = EquipmentRating.create!(rating: 4, content: "Great skis, worth every penny!", author_id: 2)
 
@@ -44,6 +53,7 @@ insurance.insurance_claims << claim
 user.insurance_policies << insurance
 
 user.equipments << equipment1
+user.equipments << equipment2
 
 user.endorsements << endorsement1
 user2.rentals << rental1

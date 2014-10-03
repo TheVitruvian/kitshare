@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20140719193222) do
     t.boolean  "insurance_required"
     t.string   "location"
     t.text     "photo"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end

@@ -13,7 +13,8 @@ class EquipmentAddIn < ActiveRecord::Migration
       t.boolean     :insurance_required
       t.string      :location
       t.text        :photo
-
+      t.float       :latitude
+      t.float       :longitude
       t.timestamps
     end
 
