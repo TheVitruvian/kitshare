@@ -16,7 +16,13 @@ class EquipmentsController < ApplicationController
   end
 
   def show
-  @equipment = Equipment.find params[:id]
+    @equipment = Equipment.find params[:id]
+
+    respond_to do |format|
+      format.html
+      format.js
+      format.json { render json: @equipment }
+    end
   end
 
   def new
