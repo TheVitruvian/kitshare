@@ -1,4 +1,3 @@
-
 var map;
 
 function showWindow(marker, string){
@@ -13,7 +12,7 @@ function showWindow(marker, string){
 function initialize() {
 
   var path = location.pathname
-  //if statement so only run on equipment index
+  //if statement so only run on equipment index only
   if (path == "/equipments") {
   
     var mapOptions = {

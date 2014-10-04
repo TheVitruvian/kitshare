@@ -9,8 +9,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   process :set_content_type
 
   # Choose what kind of storage to use for this uploader:
-  #storage :file
-   storage :fog
+  # storage :file
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -18,6 +18,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def default_url  
+    ActionController::Base.helpers.asset_path "placeholder.png" 
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -29,14 +32,26 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process :scale => [200, 300]
   #
-   def scale(width, height)
-      process :resize_to_fit => [200, 300]# do something
-   end
+  # def scale(width, height)
+  #   # do something
+  # end
 
   # Create different versions of your uploaded files:
-   version :thumb do
-     process :resize_to_fit => [80, 80]
-   end
+  version :thumb do
+    process :resize_to_fit => [200, 200]
+  end
+
+  version :post_index do
+    process :resize_to_fit => [400, 400]
+  end 
+
+  version :post_show do 
+    process :resize_to_fit => [800, 800]
+  end
+
+  version :user do 
+    process :resize_to_fit => [500, 500]
+  end 
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

@@ -9,6 +9,17 @@
     font-style: normal;
 }
 
+.rating-width{
+  min-width: 100px;
+}
+
+.logo{
+  height: 90px;
+  border-radius: 90%;
+  display: block;
+  margin: auto;
+}
+
 @media screen and (max-width: 767px) {
   .slides-navigation {
     display: none;

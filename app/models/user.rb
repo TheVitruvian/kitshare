@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
                   :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :role
 
 
-
   #messaging setup
   acts_as_messageable
 
@@ -24,8 +23,7 @@ class User < ActiveRecord::Base
   validates :address, :presence => {:message => 'We need to know where the kit is located!'}
   validates :postcode, :presence => {:message => 'We need to know where the kit is located!'}
 
-  #image uploader
-  mount_uploader :profile_picture, ImageUploader
+
 
   #ownerships
   has_many  :equipments
@@ -34,6 +32,9 @@ class User < ActiveRecord::Base
   has_many  :insurance_policies
   has_many  :insurance_claims, through: :insurance_policies
   has_many  :endorsements
+
+  #image uploader
+  mount_uploader :profile_picture, ImageUploader
 
   #callback to cache ratings and last 3 endorsements.
   private

@@ -17,6 +17,9 @@ class Equipment < ActiveRecord::Base
   has_many :equipment_ratings
   belongs_to :user
 
+  #image uploader
+  mount_uploader :photo, ImageUploader
+
 
 
 end

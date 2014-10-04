@@ -1,3 +1,5 @@
+
+
 -if current_user
   %ul.right
     %li
@@ -7,6 +9,13 @@
     %li.has-dropdown
       = link_to "#{current_user.user_name}", "#"
       %ul.dropdown
+        %li
+          = image_tag(current_user.profile_picture, class: "logo")
+          .rating.rating-width
+            #score
+              =(current_user.rating)
+            
+
         %li
           = link_to "Profile", "#"
         %li
@@ -31,3 +40,10 @@
       = link_to image_tag("twitter-3-48.png", class: "social-media"), "https://twitter.com/kitshare"
     %li
       = link_to image_tag("blogger-3-48.png", class: "social-media"), "http://blog.kitshare.org"
+
+:javascript
+  $('.rating').raty({ readOnly: true, score: parseInt($('#score').text()) , path: '/assets' });
+  $('#score').hide();
+
+
+

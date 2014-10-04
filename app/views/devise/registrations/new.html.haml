@@ -1,9 +1,8 @@
 %body
   .main-image
-    .row
-
+    .row 
       %h2 Sign Up To KitShare
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name, url:  registration_path(resource_name)) do |f|
         = devise_error_messages!
         %div
           = f.label :first_name
@@ -28,12 +27,12 @@
         %div
           = f.label :user_name
           %br/
-          = f.text_field :user_name, autofocus: true
+          = f.text_field :user_name
         %div
         %div
           = f.label :email
           %br/
-          = f.email_field :email, autofocus: true
+          = f.email_field :email
         %div
           = f.label :password
           %br/
@@ -49,5 +48,5 @@
         %div
         %br
         %div= f.submit "Sign up"
-      = render "devise/shared/links"
+        = render "devise/shared/links"
 
