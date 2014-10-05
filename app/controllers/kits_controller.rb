@@ -44,6 +44,23 @@ class KitsController < ApplicationController
     end
   end
 
+  def edit
+    @kit = Kit.find params[:id]
+  end
+
+  def update
+    @kit = Kit.new(params[:kit])
+    
+    respond_to do |format|
+      if @kit.update_attributes(params[:kit])
+        format.html { redirect_to @kit, notice: 'Kit was successfully updated.' }
+      else
+        format.html { render action: "edit" }
+      end
+    end
+
+  end
+
   def search
   end
 end
