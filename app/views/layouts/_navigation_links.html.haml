@@ -3,9 +3,9 @@
 -if current_user
   %ul.right
     %li
-      = link_to "Add Some Kit", new_equipment_path
+      = link_to "Add Some Kit", new_kit_path
     %li
-      = link_to "Rent Some Kit", equipments_path
+      = link_to "Rent Some Kit", kits_path
     %li.has-dropdown
       = link_to "#{current_user.user_name}", "#"
       %ul.dropdown
@@ -17,7 +17,7 @@
             
 
         %li
-          = link_to "Profile", "#"
+          = link_to "Profile", current_user
         %li
           = link_to "Payment", "#"
         %li

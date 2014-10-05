@@ -1,7 +1,7 @@
 class RatingsAndRentals < ActiveRecord::Migration
   def change
-    create_table :equipment_ratings do |t|
-      t.belongs_to  :equipment
+    create_table :kit_ratings do |t|
+      t.belongs_to  :kit
       t.float       :rating
       t.text        :content
       t.references  :author
@@ -13,7 +13,7 @@ class RatingsAndRentals < ActiveRecord::Migration
       t.timestamps
       t.belongs_to :user
       t.references :renter
-      t.references :equipment
+      t.references :kit
       t.date       :start_date
       t.date       :end_date
       t.float      :cost

@@ -1,11 +1,11 @@
 class Rental < ActiveRecord::Base
 
   #attributes
-  attr_accessible :user, :renter_id, :equipment_id, :start_date, :end_date, :cost, :status
+  attr_accessible :user, :renter_id, :kit_id, :start_date, :end_date, :cost, :status
 
   #validations
   validates :renter_id, presence: true
-  validates :equipment_id, presence: true
+  validates :kit_id, presence: true
   validates :start_date, :presence => {:message => 'Please input a start date'}
   validates :end_date, :presence => {:message => 'Please input an end date'}
   validates :cost, presence: true
@@ -14,7 +14,7 @@ class Rental < ActiveRecord::Base
   #ownership
   belongs_to :user
   belongs_to :renter, class_name: "User", :foreign_key => 'renter_id'
-  belongs_to :equipment
+  belongs_to :kit
 
   
 

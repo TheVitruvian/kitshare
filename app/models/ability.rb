@@ -4,17 +4,17 @@ class Ability
   def initialize(user)
       user ||= User.new 
 
-      #If you're a normal user you can read everything, create equipment, and edit/destroy/ stuff that you intially created
+      #If you're a normal user you can read everything, create kit, and edit/destroy/ stuff that you intially created
       can :read, :all
-      can :create, Equipment
-      can :edit, Equipment do |equipment|
-        equipment.user == user
+      can :create, kit
+      can :edit, kit do |kit|
+        kit.user == user
       end
-      can :update, Equipment do |equipment|
-        equipment.user == user
+      can :update, kit do |kit|
+        kit.user == user
       end
-      can :destroy, Equipment do |equipment|
-        equipment.user == user
+      can :destroy, kit do |kit|
+        kit.user == user
       end  
 
       #if you're not a user you can create a normal user and view everything

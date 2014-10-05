@@ -40,6 +40,8 @@ gem 'rmagick', require: false
 gem "fog", "~> 1.3.1"
 gem 'acts_as_votable', '~> 0.8.0'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 gem "nifty-generators", :group => :development
 
 group :development, :test do

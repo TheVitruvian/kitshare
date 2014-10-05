@@ -12,8 +12,8 @@ function showWindow(marker, string){
 function initialize() {
 
   var path = location.pathname
-  //if statement so only run on equipment index only
-  if (path == "/equipments") {
+  //if statement so only run on kit index only
+  if (path == "/kits") {
   
     var mapOptions = {
       zoom: 2,

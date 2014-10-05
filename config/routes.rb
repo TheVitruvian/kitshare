@@ -6,10 +6,10 @@ Kitshare::Application.routes.draw do
     resources :users, except: [:index]
   end
 
-  resources :equipments do
+  resources :kits do
   end
 
-
+  resources :charges
 
   authenticated :user do
     root :to => "users#profile"
