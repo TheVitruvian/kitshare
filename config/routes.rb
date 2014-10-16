@@ -17,4 +17,6 @@ Kitshare::Application.routes.draw do
 
   root :to => "pages#home"
 
+  get "kits/update_kind", as: "update_kind"
+
 end

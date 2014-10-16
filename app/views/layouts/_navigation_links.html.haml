@@ -3,6 +3,8 @@
 -if current_user
   %ul.right
     %li
+      = link_to "Messages", "#"
+    %li
       = link_to "Add Some Kit", new_kit_path
     %li
       = link_to "Rent Some Kit", kits_path
@@ -10,14 +12,13 @@
       = link_to "#{current_user.user_name}", "#"
       %ul.dropdown
         %li
-          = image_tag(current_user.profile_picture, class: "logo")
-          .rating.rating-width
-            #score
-              =(current_user.rating)
-            
-
+          = link_to(current_user) do
+            = image_tag(current_user.profile_picture, class: "logo")
+            .rating.rating-width
+              #score
+                =(current_user.rating)
         %li
-          = link_to "Profile", current_user
+          %hr
         %li
           = link_to "Payment", "#"
         %li

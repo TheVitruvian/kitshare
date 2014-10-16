@@ -1,7 +1,41 @@
 = simple_form_for(@kit) do |f|
   = f.error_notification
 
-  .form-inputs
+
+  .row.collapse
+    .row.collapse
+      .small-12.large-6.columns
+        %fieldset
+          %legend Kit details
+          .small-3.large-2.columns
+            %span.prefix Category
+          .small-9.large-10.columns
+            = f.select :category, options_for_select(%w{ Skiing Snowboarding Kitesurfing Surfing Other }), prompt: "Required..."
+          .small-3.large-2.columns
+            %span.prefix Kind
+          .small-9.large-10.columns
+            = f.select :kind, options_for_select(""), prompt: "Select a category..."
+          .small-3.large-2.columns
+            %span.prefix Condition
+          .small-9.large-10.columns
+            = f.select :condition, options_for_select(%w{ New Excellent Good Average Poor }), prompt: "Required..."
+
+
 
   .form-actions
     = f.button :submit
+
+
+
+:javascript
+  $(document).ready(function() {
+    $('#kit_category').change(function() {
+        $.ajax({
+           url: "#{update_kind_path}",
+           data: {
+               category: $("#kit_category option:selected").text()
+           },
+           dataType: "script"
+        });
+    });
+  });
