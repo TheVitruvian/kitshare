@@ -16,8 +16,11 @@
 .logo{
   height: 90px;
   border-radius: 90%;
-  display: block;
-  margin: auto;
+
+}
+
+.logo-image{
+  height:40px;
 }
 
 @media screen and (max-width: 767px) {

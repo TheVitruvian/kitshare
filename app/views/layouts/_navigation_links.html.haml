@@ -13,7 +13,7 @@
       %ul.dropdown
         %li
           = link_to(current_user) do
-            = image_tag(current_user.profile_picture, class: "logo")
+            = image_tag(current_user.profile_picture)
             .rating.rating-width
               #score
                 =(current_user.rating)

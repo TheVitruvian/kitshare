@@ -2,10 +2,11 @@
 -# the syntax for data-topbar may need to change for Zurb Foundation 5
 .contain-to-grid
   %nav.top-bar.absolute{"data-topbar" => true}
-    %ul.title-area
+    %ul.title-area        
       %li.name
-        =image_tag logo.png
-        .logo=link_to "Kitshare", (root_url)
+        = link_to(root_url) do
+          %span.logo-image=image_tag("logo.png", size: "40x40")
+          %span.logo="Kitshare"
       %li.toggle-topbar.menu-icon
         %a{:href => "#"}
           Menu
