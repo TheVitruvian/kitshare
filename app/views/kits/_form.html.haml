@@ -6,36 +6,138 @@
     .row.collapse
       .small-12.large-6.columns
         %fieldset
-          %legend Kit details
+          %legend Kit Type:
           .small-3.large-2.columns
             %span.prefix Category
           .small-9.large-10.columns
-            = f.select :category, options_for_select(%w{ Skiing Snowboarding Kitesurfing Surfing Other }), prompt: "Required..."
+            = f.select :category, options_for_select(""), prompt: "Select..."
           .small-3.large-2.columns
             %span.prefix Kind
           .small-9.large-10.columns
-            = f.select :kind, options_for_select(""), prompt: "Select a category..."
+            = f.select :kind, options_for_select("")
+          .small-3.large-2.columns
+            %span.prefix Type
+          .small-9.large-10.columns
+            = f.select :sub_kind, options_for_select("")
           .small-3.large-2.columns
             %span.prefix Condition
           .small-9.large-10.columns
-            = f.select :condition, options_for_select(%w{ New Excellent Good Average Poor }), prompt: "Required..."
-
-
+            = f.select :condition, options_for_select(%w{ New Excellent Good Average Poor }), prompt: "Select..."
+        %fieldset
+          %legend Kit Details:
+          .small-3.large-2.columns
+            %span.prefix Title
+          .small-9.large-10.columns
+            = f.text_field :title
+          .small-3.large-2.columns
+            %span.prefix Description
+          .small-9.large-10.columns  
+            = f.text_area :description, :size => '80x10', placeholder: "Optional..."
 
   .form-actions
-    = f.button :submit
-
+    = f.button :submit, class: "button right"
 
 
 :javascript
-  $(document).ready(function() {
-    $('#kit_category').change(function() {
-        $.ajax({
-           url: "#{update_kind_path}",
-           data: {
-               category: $("#kit_category option:selected").text()
-           },
-           dataType: "script"
-        });
-    });
-  });
+  //<![CDATA[
+  $(window).load(function(){
+  var data = {
+      'Skiing': {
+          'Clothes': ["Jacket", "Trousers", "Gloves", "Base layers"],
+          'Skis': ["All Mountain", "Race", "Powder"],
+          'Bindings': ["N/a"]
+      },
+      'Snowboarding': {
+          'Board': ["Racing", "Park"],
+          'Boots': ["Soft", "Hard"]
+      }
+  },
+  $a = $('#kit_category'); // The dropdowns
+  $b = $('#kit_kind');
+  $c = $('#kit_sub_kind');
+   
+  for (var prop in data) {
+      var first = prop;
+      $a.append($("<option>"). // Add options
+      attr("value", first).
+      text(first));
+  }
+   
+  $a.change(function () {
+      var firstkey = $(this).val();
+      $b.html(''); // Clear existing options in second dropdown
+      for (var prop in data[firstkey]) {
+          var second = prop;
+          $b.append($("<option>"). // Add options
+          attr("value", second).
+          text(second));
+      }
+      $b.change();
+  }).change(); // Trigger once to add options at load of first choice
+   
+  $b.change(function () {
+      var firstKey = $a.val(),
+          secondKey = $(this).val();
+      $c.html(''); // Clear existing options in second dropdown
+      for(var i = 0; i < data[firstKey][secondKey].length; i++) {
+          var third = data[firstKey][secondKey][i]
+          $c.append($("<option>"). // Add options
+          attr("value", third).
+          text(third));
+      }
+      $c.change();
+  }).change();
+  });//]]>
+
+
+/ :javascript
+/   var data = {
+/       'Skiing': {
+/           'Clothes': ["Jacket", "Trousers", "Gloves", "Base layers"],
+/           'Skis': ["All Mountain", "Race", "Powder"],
+/           'Bindings': ["N/a"]
+/       },
+/       'Snowboarding': {
+/           'Smartphones': ["Lumia 920", "Lumia 820", "Lumia 1020"],
+/           'Budget Phones': ["Asha 300", "Asha 303", "Asha 309"]
+/       }
+/   },
+/   $a = $('#kit_category'); // The dropdowns
+/   $b = $('#kit_kind');
+/   $c = $('#kit_sub_kind');
+/   $a.change(function () {
+/     var firstkey = $(this).val();
+/     $b.html(''); // Clear existing options in second dropdown
+/     for (var prop in data[firstkey]) {
+/         var second = prop;
+/         $b.append($("<option>"). // Add options
+/         attr("value", second).
+/         text(second));
+/     }
+/     $b.change();
+/   }).change(); // Trigger once to add options at load of first choice
+ 
+/   $b.change(function () {
+/     var firstKey = $a.val(),
+/         secondKey = $(this).val();
+/     $c.html(''); // Clear existing options in second dropdown
+/     for(var i = 0; i < data[firstKey][secondKey].length; i++) {
+/         var third = data[firstKey][secondKey][i]
+/         $c.append($("<option>"). // Add options
+/         attr("value", third).
+/         text(third));
+/     }
+/     $c.change();
+/   }).change();
+/   });//]]> 
+  
+
+
+/ / :javascript
+/ /   $(document).ready(function() {
+/ /     $('#kit_category').change(function() {
+/       alert("here")
+/       $('#kit_kind').append("Test")
+        
+/     });
+/   });
