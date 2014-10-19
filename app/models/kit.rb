@@ -1,7 +1,7 @@
 class Kit < ActiveRecord::Base
 
   #attributes
-  attr_accessible :user, :category, :kind, :daily_price, :weekly_price, :monthly_price, :condition, :description, :insurance_required, :location, :photo, :longtitude, :latitude
+  attr_accessible :user, :category, :kind, :sub_kind, :title, :daily_price, :weekly_price, :monthly_price, :condition, :description, :insurance_required, :location, :photo, :longtitude, :latitude
 
   #geocoder
   geocoded_by :location

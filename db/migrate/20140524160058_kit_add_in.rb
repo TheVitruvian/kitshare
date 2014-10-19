@@ -5,6 +5,8 @@ class KitAddIn < ActiveRecord::Migration
       t.belongs_to  :user
       t.string      :category
       t.string      :kind
+      t.string      :sub_kind
+      t.string      :title
       t.float       :daily_price
       t.float       :weekly_price
       t.float       :monthly_price
@@ -12,7 +14,12 @@ class KitAddIn < ActiveRecord::Migration
       t.text        :description
       t.boolean     :insurance_required
       t.string      :location
-      t.text        :photo
+      t.text        :photo1
+      t.text        :photo2
+      t.text        :photo3
+      t.text        :photo4
+      t.text        :photo5
+      t.integer     :photo_primary
       t.float       :latitude
       t.float       :longitude
       t.timestamps

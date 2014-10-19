@@ -32,7 +32,6 @@ class KitsController < ApplicationController
   def create
     @kit = Kit.new(params[:kit])
     @kit.user = current_user
-    binding.pry
     respond_to do |format|
       if @kit.save
         format.html { redirect_to @kit, notice: 'Kit was successfully created.' }
