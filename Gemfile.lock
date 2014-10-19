@@ -332,7 +332,7 @@ DEPENDENCIES
   rails_layout
   rmagick
   rspec-rails
-  sass-rails
+  sass-rails (~> 3.2.3)
   shoulda
   shoulda-matchers
   simple_form
