@@ -14,11 +14,12 @@
         %li
           = link_to(current_user) do
             = image_tag(current_user.profile_picture)
+
             .rating.rating-width
               #score
-                =(current_user.rating)
-        %li
-          %hr
+                = current_user.rating
+          
+          =current_user.replies_percentage
         %li
           = link_to "Payment", "#"
         %li
