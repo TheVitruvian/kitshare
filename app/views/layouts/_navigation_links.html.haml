@@ -7,19 +7,21 @@
     %li
       = link_to "Add Some Kit", new_kit_path
     %li
-      = link_to "Rent Some Kit", kits_path
+      = link_to "Rent Some Kit", kits_path(:view => "new")
     %li.has-dropdown
       = link_to "#{current_user.user_name}", "#"
       %ul.dropdown
         %li
           = link_to(current_user) do
+            %span.label.radius.secondary.text-center="Reply %:"
+            .progress
+              %span.meter{:style => "width: #{current_user.replies_percentage}%"}
             = image_tag(current_user.profile_picture)
-
-            .rating.rating-width
+            .rating.rating-width 
               #score
                 = current_user.rating
-          
-          =current_user.replies_percentage
+            
+            
         %li
           = link_to "Payment", "#"
         %li

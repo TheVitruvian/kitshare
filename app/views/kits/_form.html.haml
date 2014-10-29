@@ -6,6 +6,17 @@
     .row.collapse
       .small-12.large-6.columns
         %fieldset
+          %legend.kitshare-blue Kit Details:
+          .small-3.large-2.columns
+            %span.prefix Title
+          .small-9.large-10.columns
+            = f.text_field :title
+          .small-3.large-2.columns
+            %span.prefix Description
+          .small-9.large-10.columns  
+            = f.text_area :description, :size => '80x10', placeholder: "Optional..."
+
+        %fieldset
           %legend.kitshare-blue Kit Type:
           .small-3.large-2.columns
             %span.prefix Category
@@ -23,17 +34,7 @@
             %span.prefix Condition
           .small-9.large-10.columns
             = f.select :condition, options_for_select(%w{ New Excellent Good Average Poor }), prompt: "Select..."
-        %fieldset
-          %legend.kitshare-blue Kit Details:
-          .small-3.large-2.columns
-            %span.prefix Title
-          .small-9.large-10.columns
-            = f.text_field :title
-          .small-3.large-2.columns
-            %span.prefix Description
-          .small-9.large-10.columns  
-            = f.text_area :description, :size => '80x10', placeholder: "Optional..."
-
+        
   .form-actions
     = f.button :submit, class: "button right"
 

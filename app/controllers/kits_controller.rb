@@ -37,7 +37,7 @@ class KitsController < ApplicationController
         format.html { redirect_to @kit, notice: 'Kit was successfully created.' }
 
       else
-        binding.pry
+        
         format.html { render action: "new" }
         format.json { render json: @kit.errors, status: :unprocessable_entity }
       end

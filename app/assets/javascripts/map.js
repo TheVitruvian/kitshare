@@ -11,9 +11,9 @@ function showWindow(marker, string){
 
 function initialize() {
 
-  var path = location.pathname
+  var path = location.search
   //if statement so only run on kit index only
-  if (path == "/kits") {
+  if (path == "?view=new") {
   
     var mapOptions = {
       zoom: 2,

@@ -2,11 +2,15 @@
 %script{:src => "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js", :type => "text/javascript"}
 %script{src:"https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"}
 
-%body.main-image  
-  .row
-    %br
-      %input#autocomplete.controls.text-center{type: :text}
-        #map-canvas-global
+%body.main-image
+
+  .large-9.columns
+    #map-canvas-global
+  .large-3.columns
+    %input#autocomplete.controls.text-center{type: :text}
+    TEST
+    TEST
+    TEST
 
 
 / making an AJAX request to contact the server to get kit addresses
@@ -53,12 +57,3 @@
       }
     });
   });
-
-.row
-  %ul.small-block-grid-1.large-block-grid-3
-    %li
-      TEST
-    %li
-      TEST
-    %li
-      TEST
