@@ -16,7 +16,8 @@
             %span.label.radius.secondary.text-center="Reply %:"
             .progress
               %span.meter{:style => "width: #{current_user.replies_percentage}%"}
-            = image_tag(current_user.profile_picture)
+            .profile-img
+              = image_tag(current_user.profile_picture)
             .rating.rating-width 
               #score
                 = current_user.rating
