@@ -1,7 +1,7 @@
 class Kit < ActiveRecord::Base
 
   #attributes
-  attr_accessible :user, :category, :kind, :sub_kind, :title, :daily_price, :weekly_price, :monthly_price, :condition, :description, :insurance_required, :location, :photo, :longtitude, :latitude
+  attr_accessible :user, :category, :kind, :sub_kind, :title, :daily_price, :weekly_price, :monthly_price, :condition, :description, :insurance_required, :location, :photo1, :photo2, :photo3, :photo4, :photo5, :longtitude, :latitude
 
   #geocoder
   geocoded_by :location
@@ -18,8 +18,9 @@ class Kit < ActiveRecord::Base
   belongs_to :user
 
   #image uploader
-  mount_uploader :photo, ImageUploader
-
-
-
+  mount_uploader :photo1, ImageUploader
+  mount_uploader :photo2, ImageUploader
+  mount_uploader :photo3, ImageUploader
+  mount_uploader :photo4, ImageUploader
+  mount_uploader :photo5, ImageUploader
 end

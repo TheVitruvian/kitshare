@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140719193222) do
+ActiveRecord::Schema.define(:version => 20141102125337) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject",    :default => ""
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20140719193222) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "title"
   end
 
   create_table "insurance_claims", :force => true do |t|
@@ -136,7 +137,7 @@ ActiveRecord::Schema.define(:version => 20140719193222) do
     t.text     "address"
     t.string   "postcode"
     t.float    "rating"
-    t.text     "top_3_endorsements"
+    t.text     "last_3_endorsements"
     t.boolean  "insurance"
     t.text     "profile_picture"
     t.float    "replies_percentage"

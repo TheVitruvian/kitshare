@@ -12,7 +12,7 @@ Kitshare::Application.routes.draw do
   resources :charges
 
   authenticated :user do
-    root :to => "users#profile"
+    root :to => "kits#index"
   end
 
   root :to => "pages#home"

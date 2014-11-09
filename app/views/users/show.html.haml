@@ -1,5 +1,78 @@
+.main-image
+  .centre-opacity
+    .row.collapse
+      .large-3.columns.header-padding
+        .panel.radius.callout
+          .profile-top
+            %br
+            -if @user.role.present?
+              %h4=@user.role
+            -if @user == current_user
+              Welcome back 
+              =@user.first_name
+            .profile-img
+              -if @user.profile_picture.present?
+                = image_tag @user.profile_picture
+                %br
+              -else
+                = image_tag "placeholder.png"
+            = @user.user_name
+          %hr
+          .row.profile
+            .columns
+              Replies percentage:
+              .progress
+                %span.meter{:style => "width: #{@user.replies_percentage}%"}
+              Rating:
+              %span.user-rating.rating-width
+                %span#user-score
+                  = @user.rating
+          .row.profile
+            .columns 
+              -if @user.last_3_endorsements.present?
+                @user.last_3_endorsements
+              -else
+                ="#{@user.user_name} has no endorsements yet"
+          
+          .row.profile
+            .columns
+              = "Has insurance:"
+              = check_box_tag "" , "" , @user.insurance, disabled: true
 
-- @user.kits.each do |kit|
-  %h1.headline= "Type: #{kit.kind}"
-  %h1.headline= "Condition: #{kit.condition}"
+      .large-8.columns.header-padding
+        %dl.sub-nav
+          %dt Filter:
+          %dd.active=link_to "All", "#"
+          %dd= link_to "Skiing", "#"
 
+        .profile
+          .row
+            .columns
+              -@kits.each do |kit|
+                .kits
+                  .large-3.columns
+                    .profile-img
+                      -if kit.photo1.present?
+                        = kit.photo1
+                      -else
+                        = image_tag "logo.png" 
+                  .large-2.columns
+                    .label.radius.secondary.text-center
+                      =kit.category
+                    .label.radius.secondary.text-center
+                      =kit.kind
+                    -if kit.sub_kind.present?
+                      .label.radius.secondary.text-center
+                        =kit.sub_kind 
+
+                  .large-7.columns
+                    %h5=link_to "#{kit.title}", kit
+                    %p= kit.description
+                %hr
+
+        
+
+  / find users rating, converts to stars and hides text
+  :javascript
+    $('.user-rating').raty({ readOnly: true, score: parseInt($('#user-score').text()) , path: '/assets' });
+    $('#user-score').hide();

@@ -1,3 +1,7 @@
+$kitshare-blue : #67cae9;
+$oil: #333333;
+
+
 @font-face {
    font-family: 'Harabara';
     src: font-url('Harabara.eot');
@@ -19,8 +23,25 @@
     width:100px;
     overflow:hidden;
     border-radius:50%;
+    margin: auto;
 }
 
+.profile-top{
+  text-align: center;
+}
+
+.profile{
+  color: $oil;
+  text-align: left;
+}
+
+.kits{
+
+}
+.kits:hover{
+  background-color: grey;
+  border-radius: 3px;
+}
 
 .logo{
   height: 90px;
@@ -67,7 +88,12 @@
 }
 
 .social-media{
-  height: 38px;
+  height: 34px;
+}
+
+.social-media:hover{
+  opacity: 0.5;
+  transition: opacity 300ms ease-out
 }
 
 #slides {

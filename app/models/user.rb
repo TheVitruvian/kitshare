@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   attr_accessible :first_name, :last_name, :user_name, :address, :postcode, :rating, 
-                  :top_3_endorsements, :insurance, :profile_picture, :replies_percentage, :email, 
+                  :last_3_endorsements, :insurance, :profile_picture, :replies_percentage, :email, 
                   :password, :password_confirmation, :remember_me, :reset_password_token, 
                   :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, 
                   :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :role
@@ -52,13 +52,17 @@ class User < ActiveRecord::Base
     #return nil
   end
 
-  #update top 3 endorsements
+  #update last 3 endorsements
   def update_endorsements   
-    top_3_endorsements = self.endorsements LIMIT 3
+    last_3_endorsements = self.endorsements LIMIT 3
   end
 
   def update_rating
-    # rating = self.endoursements.ratings #include average block
+    # rating = self.endorsements.ratings #include average block
+  end
+
+  def has_insurance
+    # Pull end date of insurance when made.
   end
 
 end
