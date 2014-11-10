@@ -11,9 +11,9 @@ function showWindow(marker, string){
 
 function initialize() {
 
-  var path = location.pathname
-  //if statement so only run on kit index only
-  if (path == "/kits") {
+  var path = location.search
+  //if statement so only run on kit index only ** CONSIDERING REPLACING WHEN JS VALIDATION PRESENT IN KITS ADD FORM
+  if (path == "?view=new") {
   
     var mapOptions = {
       zoom: 2,

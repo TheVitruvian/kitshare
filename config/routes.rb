@@ -9,10 +9,17 @@ Kitshare::Application.routes.draw do
   resources :kits do
   end
 
+  resources :user do
+    resources :endorsements, only: [:create, :update, :destroy]
+  end
+
+
+  
+
   resources :charges
 
   authenticated :user do
-    root :to => "users#profile"
+    root :to => "kits#index"
   end
 
   root :to => "pages#home"

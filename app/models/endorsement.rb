@@ -1,7 +1,7 @@
 class Endorsement < ActiveRecord::Base
 
   #attributes
-  attr_accessible :user_id, :author_id, :rating, :content
+  attr_accessible :user_id, :author_id, :rating, :content, :title
 
 
   #validations

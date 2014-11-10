@@ -40,7 +40,7 @@ kit2 = Kit.create!(category: "Skiing",
 
 kitrating1 = KitRating.create!(rating: 4, content: "Great skis, worth every penny!", author_id: 2)
 
-endorsement1 = Endorsement.create!(user_id: 1, author_id: 2, rating: 5, content: "Awesome chap!")
+endorsement1 = Endorsement.create!(user_id: 1, author_id: 2, rating: 5, content: "Awesome chap!", title: "MEGA!")
 
 rental1 = Rental.create!(renter_id: 1, start_date: "2014-08-03", end_date: "2014-08-06", cost: 233, status: "open", kit_id: 1)
 rental2 = Rental.create!(renter_id: 2, start_date: "2014-08-08", end_date: "2014-08-09", cost: 133, status: "open", kit_id: 1)

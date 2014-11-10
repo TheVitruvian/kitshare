@@ -1,10 +1,32 @@
 = simple_form_for(@kit) do |f|
   = f.error_notification
-
-
   .row.collapse
     .row.collapse
-      .small-12.large-6.columns
+      %fieldset
+        %legend.kitshare-blue Kit Photos (TEMP IMAGE):
+        %ul.small-block-grid-3.large-block-grid-5
+          %li
+            %img=image_tag "IMG_0339.JPG"
+          %li
+            %img=image_tag "7081_1280x800.jpg"
+          %li
+            %img=image_tag "IMG_0339.JPG"
+        / light box from Foundation? Need to consider upload as well
+    .row.collapse
+      .large-6.columns
+        %fieldset
+          %legend.kitshare-blue Kit Details:
+          .small-3.large-2.columns
+            %span.prefix Title
+          .small-9.large-10.columns
+            = f.text_field :title, autofocus: true
+          .small-3.large-2.columns
+            %span.prefix Description
+          .small-9.large-10.columns  
+            = f.text_area :description, :size => '80x10', placeholder: "Optional..."
+
+
+      .large-6.columns
         %fieldset
           %legend.kitshare-blue Kit Type:
           .small-3.large-2.columns
@@ -23,17 +45,39 @@
             %span.prefix Condition
           .small-9.large-10.columns
             = f.select :condition, options_for_select(%w{ New Excellent Good Average Poor }), prompt: "Select..."
+      
+    .row.collapse
+      .large-6.columns
         %fieldset
-          %legend.kitshare-blue Kit Details:
+          %legend.kitshare-blue Pricing details:
           .small-3.large-2.columns
-            %span.prefix Title
+            %span.prefix Daily
           .small-9.large-10.columns
-            = f.text_field :title
+            = f.number_field :daily_price, placeholder: "Daily"
+            / needs to be restricted to +ve and exclude characters
           .small-3.large-2.columns
-            %span.prefix Description
-          .small-9.large-10.columns  
-            = f.text_area :description, :size => '80x10', placeholder: "Optional..."
+            %span.prefix Weekly
+          .small-9.large-10.columns
+            = f.number_field :weekly_price, placeholder: "Weekly"
+          .small-3.large-2.columns
+            %span.prefix Monthly
+          .small-9.large-10.columns
+            = f.number_field :monthly_price, placeholder: "Monthly"
+          .small-4.columns
+            %span.prefix Insurance needed?
+          .small-8.columns
+            = f.check_box :insurance_required
+      
+      .large-6.columns
+        %fieldset
+          %legend.kitshare-blue Kit Location:
+          .small-3.large-2.columns
+            %span.prefix Address
+          .small-9.large-10.columns
+            = f.text_field :location
 
+
+      
   .form-actions
     = f.button :submit, class: "button right"
 
@@ -87,4 +131,6 @@
       }
       $c.change();
   }).change();
-  });//]]>
+
+});//]]>
+

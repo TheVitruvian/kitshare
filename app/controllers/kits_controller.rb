@@ -37,6 +37,7 @@ class KitsController < ApplicationController
         format.html { redirect_to @kit, notice: 'Kit was successfully created.' }
 
       else
+        
         format.html { render action: "new" }
         format.json { render json: @kit.errors, status: :unprocessable_entity }
       end
@@ -61,27 +62,6 @@ class KitsController < ApplicationController
   end
 
   def search
-  end
-
-  def update_kind
-      @category = params[:category]
-
-    case @category 
-      when "Skiing"
-        @kind = %w{Skis Poles Boots Etc etc}
-      when "Snowboarding"
-        @kind = %w{Snowboard Boots Etc etc}
-      when "Kitsurfing"
-        @kind = "Test Test Test"
-      when "Surfing"
-        @kind = "Surfboard Etc Etc"
-    end  
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @kind }
-    end
-
   end
 
 end

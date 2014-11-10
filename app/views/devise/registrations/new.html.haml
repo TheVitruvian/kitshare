@@ -1,52 +1,48 @@
-%body
-  .main-image
-    .row 
-      %h2 Sign Up To KitShare
-      = form_for(resource, as: resource_name, url:  registration_path(resource_name)) do |f|
-        = devise_error_messages!
-        %div
-          = f.label :first_name
-          %br/
-          = f.text_field :first_name, autofocus: true
-        %div
-        %div
-          = f.label :last_name
-          %br/
-          = f.text_field :last_name
-        %div
-        %div
-          = f.label :address
-          %br/
-          = f.text_field :address
-        %div
-        %div
-          = f.label :postcode
-          %br
-          = f.text_field :postcode
-        %div
-        %div
-          = f.label :user_name
-          %br/
-          = f.text_field :user_name
-        %div
-        %div
-          = f.label :email
-          %br/
-          = f.email_field :email
-        %div
-          = f.label :password
-          %br/
-          = f.password_field :password, autocomplete: "off"
-        %div
-          = f.label :password_confirmation
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "off"
-        %div
-        %div
-          = f.label :profile_picture
-          = f.file_field :profile_picture
-        %div
-        %br
-        %div= f.submit "Sign up"
-        = render "devise/shared/links"
+.main-image
+  .centre-opacity
+    = form_for(resource, as: resource_name, url:  registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .row.collapse
+        .row.collapse
+          %fieldset
+            %legend.kitshare-blue Sign up:
+            %fieldset
+              %legend.kitshare-blue Profile picture...
+              = f.file_field :profile_picture
+            .small-3.large-2.columns
+              %span.prefix First name
+            .small-9.large-10.columns
+              = f.text_field :first_name, autofocus: true, placeholder: "First name"
+            .small-3.large-2.columns
+              %span.prefix Last name
+            .small-9.large-10.columns  
+              = f.text_field :last_name, placeholder: "Last name"
+            .small-3.large-2.columns
+              %span.prefix Address
+            .small-9.large-10.columns    
+              = f.text_field :address, placeholder: "Address"
+            .small-3.large-2.columns
+              %span.prefix Postcode
+            .small-9.large-10.columns    
+              = f.text_field :postcode, placeholder: "Postcode"
+            .small-3.large-2.columns
+              %span.prefix User name
+            .small-9.large-10.columns  
+              = f.text_field :user_name,  placeholder: "User name"
+            .small-3.large-2.columns
+              %span.prefix Email
+            .small-9.large-10.columns  
+              = f.email_field :email,  placeholder: "Email"
+            .small-3.large-2.columns
+              %span.prefix Password
+            .small-9.large-10.columns
+              = f.password_field :password, autocomplete: "off", placeholder: "Password"
+            .small-3.large-2.columns
+              %span.prefix Password confirmation
+            .small-9.large-10.columns
+              = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmation"
+            .form-actions
+              = f.button "Sign up", class: "button right" 
+            
+            = render "devise/shared/links"
 
