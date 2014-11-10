@@ -19,26 +19,32 @@
             = @user.user_name
           %hr
           .row.profile
-            .columns
-              Replies percentage:
-              .progress
-                %span.meter{:style => "width: #{@user.replies_percentage}%"}
-              Rating:
-              %span.user-rating.rating-width
-                %span#user-score
-                  = @user.rating
+          
+            Replies percentage:
+            .progress
+              %span.meter{:style => "width: #{@user.replies_percentage}%"}
+            Rating:
+            %span.user-rating.rating-width
+              %span#user-score
+                = @user.rating
           .row.profile
-            .columns 
-              -if @user.last_3_endorsements.present?
-                @user.last_3_endorsements
-              -else
-                ="#{@user.user_name} has no endorsements yet"
+            -if @user.last_3_endorsements.present?
+              @user.last_3_endorsements
+            -else
+              ="#{@user.user_name} has no endorsements yet"
           
           .row.profile
-            .columns
-              = "Has insurance:"
-              = check_box_tag "" , "" , @user.insurance, disabled: true
-
+            = "Has insurance:"
+            = check_box_tag "" , "" , @user.insurance, disabled: true
+          -if @user != current_user
+            %hr
+            ="Rented off #{@user.first_name}? Give them a rating"
+            =form_for [@user, @user.endorsements.build] do |f|
+              = "ADD IN RATING"
+              = f.text_field :title, placeholder: "Title...(extra points for puns)"
+              = f.text_area :content, placeholder: "E.g.'#{@user.first_name} was an utter legend!'", class: ""
+              = f.submit "Rate", class: ""
+              
       .large-8.columns.header-padding
         %dl.sub-nav
           %dt Filter:

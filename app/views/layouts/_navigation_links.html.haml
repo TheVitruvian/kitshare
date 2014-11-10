@@ -68,7 +68,7 @@
     %li
       = link_to image_tag("blogger-3-48.png", class: "social-media"), "http://blog.kitshare.org"
     %li
-      = link_to "Look around", kits_path, class: "button" 
+      = link_to "Look around", kits_path(view: "new"), class: "button" 
 
 :javascript
   $('.rating').raty({ readOnly: true, score: parseInt($('#score').text()) , path: '/assets' });
