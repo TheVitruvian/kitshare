@@ -7,11 +7,11 @@ class InitialSetupOfUsers < ActiveRecord::Migration
       t.string  :user_name
       t.text    :address
       t.string  :postcode
-      t.float   :rating
+      t.float   :rating, :default => 0
       t.text    :last_3_endorsements
-      t.boolean :insurance
+      t.date    :insurance_end
       t.text    :profile_picture
-      t.float   :replies_percentage # Default to 0
+      t.float   :replies_percentage, :default => 0
       t.integer :kitshare_points
 
       t.timestamps

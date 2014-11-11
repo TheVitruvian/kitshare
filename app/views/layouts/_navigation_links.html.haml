@@ -37,11 +37,12 @@
   %ul.right
     %li.has-dropdown
       = link_to "Log In", new_user_session_path
-      %ul.dropdown
+      %ul.dropdown.has-form
         = form_for("user", :url => user_session_path) do |f|
           %li
-            %div= f.label "Email"
-            %div= f.text_field :email, placeholder: "Email", margin: "20px"
+            = f.label "Email"
+            = f.text_field :email, placeholder: "Email", margin: "20px"
+          %hr
           %li
             = f.label "Password"
             = f.password_field :password, placeholder: "Password"

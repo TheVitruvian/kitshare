@@ -4,7 +4,7 @@
   %nav.top-bar.absolute{"data-topbar" => true}
     %ul.title-area        
       %li.name
-        = link_to(root_url) do
+        = link_to(kits_path(view: "new")) do
           %span.logo-image=image_tag("logo.png", size: "40x40")
           %span.logo="Kitshare"
       %li.toggle-topbar.menu-icon

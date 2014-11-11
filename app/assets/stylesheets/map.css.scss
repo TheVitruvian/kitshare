@@ -4,6 +4,13 @@
    height: 100vh;
  }
 
+@media only screen and (max-width: 40em) {
+	#map-canvas-global {
+   height: 50vh;
+ }
+
+ }
+
 #map-canvas-global img { 
   max-width: none;
 }

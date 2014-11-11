@@ -35,7 +35,7 @@
           
           .row.profile
             = "Has insurance:"
-            = check_box_tag "" , "" , @user.insurance, disabled: true
+            = check_box_tag "" , "" , !@user.insurance.past? , disabled: true
           -if @user != current_user
             %hr
             ="Rented off #{@user.first_name}? Give them a rating"
