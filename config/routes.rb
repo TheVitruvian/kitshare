@@ -9,7 +9,7 @@ Kitshare::Application.routes.draw do
   resources :kits do
   end
 
-  resources :user do
+  resources :users do
     resources :endorsements, only: [:create, :update, :destroy]
   end
 

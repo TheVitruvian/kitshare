@@ -136,20 +136,25 @@ ActiveRecord::Schema.define(:version => 20141102125337) do
     t.string   "user_name"
     t.text     "address"
     t.string   "postcode"
+    t.text     "bio"
+    t.text     "activities"
+    t.text     "why_on"
+    t.text     "philosophy"
+    t.text     "where"
     t.float    "rating",                 :default => 0.0
     t.text     "last_3_endorsements"
-    t.date     "insurance_end"
+    t.date     "insurance_end",          :default => '1970-01-01'
     t.text     "profile_picture"
     t.float    "replies_percentage",     :default => 0.0
     t.integer  "kitshare_points"
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
-    t.string   "email",                  :default => "",  :null => false
-    t.string   "encrypted_password",     :default => "",  :null => false
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.string   "email",                  :default => "",           :null => false
+    t.string   "encrypted_password",     :default => "",           :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,   :null => false
+    t.integer  "sign_in_count",          :default => 0,            :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

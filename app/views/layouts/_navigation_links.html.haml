@@ -40,8 +40,8 @@
       %ul.dropdown.has-form
         = form_for("user", :url => user_session_path) do |f|
           %li
-            = f.label "Email"
-            = f.text_field :email, placeholder: "Email", margin: "20px"
+            = f.label "Email Address"
+            = f.text_field :email, placeholder: "Email", size: "150px"
           %hr
           %li
             = f.label "Password"

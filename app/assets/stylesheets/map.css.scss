@@ -1,15 +1,20 @@
 
 
 #map-canvas-global {
-   height: 100vh;
+  	height: 100vh;
  }
 
-@media only screen and (max-width: 40em) {
+@media only screen and (min-width: 40.063em) and (max-width: 64em) { 
 	#map-canvas-global {
-   height: 50vh;
+  	height: 75vh;
  }
+}
 
+@media only screen and (max-width: 40em) { 
+	#map-canvas-global {
+  	height: 50vh;
  }
+}
 
 #map-canvas-global img { 
   max-width: none;
