@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @kits = @user.kits
     
+    
   end
 
 

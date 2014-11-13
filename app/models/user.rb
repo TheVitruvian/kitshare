@@ -36,7 +36,13 @@ class User < ActiveRecord::Base
   #image uploader
   mount_uploader :profile_picture, ImageUploader
 
-  #callback to cache ratings and last 3 endorsements.
+  
+  def update_endorsements
+    self.last_3_endorsements = self.endorsements.last(3).to_json(:only => [ :rating, :title, :content ])
+    self.rating = self.endorsements.average(:rating).to_f
+    self.save
+  end
+  
   private
 
   #mailboxer functions
@@ -50,15 +56,6 @@ class User < ActiveRecord::Base
     email
     #if false
     #return nil
-  end
-
-  #update last 3 endorsements
-  def update_endorsements   
-    last_3_endorsements = self.endorsements LIMIT 3
-  end
-
-  def update_rating
-    # rating = self.endorsements.ratings #include average block
   end
 
   def has_insurance
