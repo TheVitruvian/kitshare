@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @kits = @user.kits
-    
+    @endorsements = @user.deserialise_endorsements unless @user.last_3_endorsements.nil?
     
   end
 

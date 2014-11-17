@@ -1,8 +1,6 @@
--require 'json'
-
 .main-image
   .centre-opacity
-    .row.collapse
+    .row
       .large-3.columns.header-padding
         .panel.radius.callout
           .profile-top
@@ -18,24 +16,26 @@
             = @user.user_name
           %hr
           .row.profile
-          
             .label.radius Reply %: 
-            
             .progress
               %span.meter{:style => "width: #{@user.replies_percentage}%"}
             .label.radius Rating:
-            %span#user-rating.rating-width
+            %span#user-rating
               #user-score
                 = @user.rating
           .row.profile
             -if @user.last_3_endorsements.present?
               .label.radius= "#{@user.user_name}'s endorsements:"
               %br
-              - JSON.parse(@user.last_3_endorsements).each do |e|
-                = e["rating"]
+              - @endorsements.each_with_index do |e, i|
+                .rating-hide{:id => "end-rating#{i+1}"}
+                  = e["rating"]
+                .rating-show{:id => "rating#{i+1}"}
+
                 = e["title"]
                 = e["content"]
-                %br
+          
+                
             -else
               ="#{@user.user_name} has no endorsements yet"
           
@@ -54,7 +54,14 @@
       
 
 
-      .large-8.columns.header-padding
+      .large-9.columns.header-padding
+        .panel.radius.callout
+          =@user.bio
+          =@user.activities
+          =@user.why_on
+
+
+      .kit
         %dl.sub-nav
           %dt Filter:
           %dd.active=link_to "All", "#"
@@ -92,6 +99,18 @@
     $('#user-rating').raty({ readOnly: true, score: parseFloat($('#user-score').text()) , path: '/assets' });
     $('#user-score').hide();
   
+  :javascript
+    $('#rating1').raty({ readOnly: true, score: parseFloat($('#end-rating1').text()) , path: '/assets' });
+    $('#end-rating1').hide();
+
+  :javascript
+    $('#rating2').raty({ readOnly: true, score: parseFloat($('#end-rating2').text()) , path: '/assets' });
+    $('#end-rating2').hide();
+
+  :javascript
+    $('#rating3').raty({ readOnly: true, score: parseFloat($('#end-rating3').text()) , path: '/assets' });
+    $('#end-rating3').hide();
+
   :javascript
     $('#given-rating').raty({half: true, scoreName: 'endorsement[rating]', path: '/assets'})
 

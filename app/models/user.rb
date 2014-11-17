@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  'require JSON'
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -9,7 +10,8 @@ class User < ActiveRecord::Base
                   :last_3_endorsements, :insurance, :profile_picture, :replies_percentage, :email, 
                   :password, :password_confirmation, :remember_me, :reset_password_token, 
                   :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, 
-                  :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :role
+                  :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :role,
+                  :bio, :activities, :why_on, 
 
 
   #messaging setup
@@ -36,9 +38,12 @@ class User < ActiveRecord::Base
   #image uploader
   mount_uploader :profile_picture, ImageUploader
 
+  def deserialise_endorsements
+    return JSON.parse(self.last_3_endorsements)
+  end
   
   def update_endorsements
-    self.last_3_endorsements = self.endorsements.last(3).to_json(:only => [ :rating, :title, :content ])
+    self.last_3_endorsements = self.endorsements.last(3).to_json(:only => [ :rating, :title, :content, :author_id ])
     self.rating = self.endorsements.average(:rating).to_f
     self.save
   end
