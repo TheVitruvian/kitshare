@@ -3,7 +3,7 @@
 	background-size: 100% auto;
 	background-image: url("main-image.jpg");
 	background-repeat: no-repeat;
-	height: 100%;
+	height: calc(100vh-45px);
 
 }
 
@@ -11,7 +11,7 @@
 .centre-opacity {
 	color: #333333;
   background: rgba(100, 100, 100, 0.3);
-  height: 100vh;
+  height: calc(100vh - 45px);
 }
 
 // full width for index
