@@ -49,6 +49,12 @@ ActiveRecord::Schema.define(:version => 20141102125337) do
     t.date     "end_date"
   end
 
+  create_table "kit_photos", :force => true do |t|
+    t.integer "kit_id"
+    t.string  "image"
+    t.boolean "primary"
+  end
+
   create_table "kit_ratings", :force => true do |t|
     t.integer  "kit_id"
     t.float    "rating"
@@ -71,12 +77,7 @@ ActiveRecord::Schema.define(:version => 20141102125337) do
     t.text     "description"
     t.boolean  "insurance_required"
     t.string   "location"
-    t.text     "photo1"
-    t.text     "photo2"
-    t.text     "photo3"
-    t.text     "photo4"
-    t.text     "photo5"
-    t.integer  "photo_primary"
+    t.integer  "kit_id"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at",         :null => false

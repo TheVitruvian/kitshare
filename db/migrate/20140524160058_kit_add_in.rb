@@ -14,12 +14,9 @@ class KitAddIn < ActiveRecord::Migration
       t.text        :description
       t.boolean     :insurance_required
       t.string      :location
-      t.text        :photo1
-      t.text        :photo2
-      t.text        :photo3
-      t.text        :photo4
-      t.text        :photo5
-      t.integer     :photo_primary
+      
+      t.integer     :kit_id
+
       t.float       :latitude
       t.float       :longitude
       t.timestamps
@@ -34,5 +31,10 @@ class KitAddIn < ActiveRecord::Migration
       t.timestamps
     end
 
+    create_table :kit_photos do |t|
+      t.belongs_to  :kit
+      t.string      :image
+      t.boolean     :primary
+    end
   end
 end

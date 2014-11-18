@@ -15,12 +15,7 @@ class Kit < ActiveRecord::Base
   #ownership
   has_many :rentals
   has_many :kit_ratings
+  has_many :kit_photos
   belongs_to :user
 
-  #image uploader
-  mount_uploader :photo1, ImageUploader
-  mount_uploader :photo2, ImageUploader
-  mount_uploader :photo3, ImageUploader
-  mount_uploader :photo4, ImageUploader
-  mount_uploader :photo5, ImageUploader
 end

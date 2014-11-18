@@ -74,8 +74,8 @@
                 .kits
                   .large-3.columns
                     .profile-img
-                      -if kit.photo1.present?
-                        = kit.photo1
+                      -if kit.kit_photos.find(:primary == true).present
+                        = kit.kit_photos.find(:primary == true)
                       -else
                         = image_tag "logo.png" 
                   .large-2.columns
