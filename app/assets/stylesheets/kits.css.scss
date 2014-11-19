@@ -4,18 +4,14 @@
 	background-image: url("main-image.jpg");
 	background-repeat: no-repeat;
 	height: calc(100vh-45px);
-
-}
-
-//centre opacity
-.centre-opacity {
-	color: #333333;
-  background: rgba(100, 100, 100, 0.3);
-  height: calc(100vh - 45px);
 }
 
 // full width for index
 .row.full-width {
     width: 100%;
     max-width: 100%;
+}
+
+.field-radius {
+	border-radius: 3px
 }

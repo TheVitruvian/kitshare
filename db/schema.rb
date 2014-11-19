@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20141102125337) do
   create_table "endorsements", :force => true do |t|
     t.integer  "user_id"
     t.integer  "author_id"
-    t.float    "rating"
+    t.float    "rating",     :default => 0.0
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "title"
   end
 

@@ -8,6 +8,7 @@
     -# Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %script{:src => "js/foundation/foundation.equalizer.js"}
     = csrf_meta_tags
     = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lato:700,900italic|Droid+Sans:400,700", rel: "stylesheet", type: "text/css"
 

@@ -13,7 +13,7 @@
       %ul.dropdown
         %li
           = link_to(current_user) do
-            %span.label.radius.secondary.text-center="Reply %:"
+            %span.label.radius.text-center="Reply %:"
             .progress
               %span.meter{:style => "width: #{current_user.replies_percentage}%"}
             .profile-img
@@ -72,7 +72,7 @@
       = link_to "Look around", kits_path(view: "new"), class: "button" 
 
 :javascript
-  $('.rating').raty({ readOnly: true, score: parseInt($('#score').text()) , path: '/assets' });
+  $('.rating').raty({ readOnly: true, score: parseFloat($('#score').text()) , path: '/assets' });
   $('#score').hide();
 
 

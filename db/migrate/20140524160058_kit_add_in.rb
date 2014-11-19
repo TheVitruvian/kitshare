@@ -25,7 +25,7 @@ class KitAddIn < ActiveRecord::Migration
     create_table :endorsements do |t|
       t.belongs_to  :user
       t.references  :author
-      t.float       :rating
+      t.float       :rating, :default => 0
       t.text        :content
       
       t.timestamps
