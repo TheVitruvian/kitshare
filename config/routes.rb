@@ -17,4 +17,11 @@ Kitshare::Application.routes.draw do
 
   root :to => "pages#home"
 
+  resources :messages do
+    member do
+      post :new
+    end
+  end
+  resources :messages
+  resources :conversations
 end
