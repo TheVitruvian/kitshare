@@ -17,11 +17,11 @@ Kitshare::Application.routes.draw do
 
   root :to => "pages#home"
 
-  resources :messages do
+  resources :conversations, only: [:index, :show, :new, :create] do
     member do
-      post :new
+      post :reply
+      post :trash
+      post :untrash
     end
   end
-  resources :messages
-  resources :conversations
 end
