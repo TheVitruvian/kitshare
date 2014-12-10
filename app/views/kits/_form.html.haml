@@ -1,13 +1,17 @@
+= javascript_include_tag "plupload.full.min.js"
 = simple_form_for(@kit) do |f|
   = f.error_notification
   .row
     .row
       %fieldset.field-radius
-        %legend.kitshare-blue.field-radius Kit Photos (TEMP IMAGE):
-        %ul.small-block-grid-3.large-block-grid-5
-          %li
+        %legend.kitshare-blue.field-radius Kit Photos:
+        .upload#uploader
 
-        / light box from Foundation? Need to consider upload as well
+
+        .filelist{:id=>"filelist"}
+
+
+        
     .row{"data-equalizer" => ""}
       .large-6.columns
         .row.collapse
@@ -139,5 +143,56 @@
     // Specify if Equalizer should make elements equal height once they become stacked.
     equalize_on_stack: false
   }});
+
+:javascript
+  $(function(){
+    var uploader = new plupload.Uploader({
+      runtimes : "html5",
+      browse_button : 'pickfiles',
+      max_file_size : '10mb',
+      url : "/upload",
+      multipart: true,
+      urlstream_upload: true,
+      multipart_params: {
+       "authenticity_token" : '#{form_authenticity_token}'
+      }
+    });
+
+    uploader.bind('FilesAdded', function(up, files) {
+      $.each(files, function(i, file) {
+        $('#filelist').append(
+          '<div id="' + file.id + '">' +
+          'File: ' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
+          '</div>'
+          );
+        });
+      });
+
+    uploader.bind('UploadProgress', function(up, file) {
+      $('#' + file.id + " b").html(file.percent + "%");
+    });
+
+
+
+    $('#uploadfiles').click(function(e) {
+      uploader.start();
+      e.preventDefault();
+    });
+
+    uploader.init();
+  });
+
+:javascript
+  $(function(){
+    $("#uploader").pluploadQueue({
+      runtimes: 'gears,flash,silverlight,browserplus,html5',
+      url: '/upload',
+      multipart_params: {
+        '#{request_forgery_protection_token}': '#{form_authenticity_token}',
+        '#{Rails.application.config.session_options[:key]}': '#{request.session_options[:id]}'
+      }
+    });
+  });
+
 
 

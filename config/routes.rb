@@ -24,4 +24,8 @@ Kitshare::Application.routes.draw do
       post :untrash
     end
   end
+
+  resources :photos
+    get '/upload_photos' => 'kit_photos#upload_photos', as: :upload_photos
+    post '/upload' => 'kit_photos#upload', as: :upload
 end
