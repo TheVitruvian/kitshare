@@ -35,41 +35,14 @@
 
 -else
   %ul.right
-    %li.has-dropdown
-      = link_to "Log In", new_user_session_path
-      %ul.dropdown.has-form
-        = form_for("user", :url => user_session_path) do |f|
-          %li
-            = f.label "Email Address"
-            = f.text_field :email, placeholder: "Email", size: "150px"
-          %hr
-          %li
-            = f.label "Password"
-            = f.password_field :password, placeholder: "Password"
-          %li
-            %br  
-          %li
-            = f.submit 'Log in', class: "small button expand radius"
-          %li
-            %br
-      / quick log in drop down
-    %li.has-dropdown
-      = link_to "Sign Up", new_user_registration_path
-      %ul.dropdown
-        %li
-          = link_to "Kitshare", new_user_registration_path
-        %li
-          = link_to "Facebook (OAuth)", "#"
-        %li
-          = link_to "Twitter", "#"
     %li
       = link_to image_tag("facebook-3-48.png", class: "social-media"), "https://www.facebook.com/Kitshare"
     %li
       = link_to image_tag("twitter-3-48.png", class: "social-media"), "https://twitter.com/kitshare"
     %li
       = link_to image_tag("blogger-3-48.png", class: "social-media"), "http://blog.kitshare.org"
-    %li
-      = link_to "Look around", kits_path(view: "new"), class: "button" 
+    / %li
+    /   = link_to "Look around", kits_path(view: "new"), class: "button" 
 
 :javascript
   $('.rating').raty({ readOnly: true, score: parseFloat($('#score').text()) , path: '/assets' });
