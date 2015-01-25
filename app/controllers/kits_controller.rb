@@ -34,10 +34,16 @@ class KitsController < ApplicationController
     @kit.user = current_user
     respond_to do |format|
       if @kit.save
+        if params[:kit_photos]
+          params[:kit_photos].each do |picture|
+            @kit.kit_photos.create(image: picture)
+            
+          end
+
+        end
         format.html { redirect_to @kit, notice: 'Kit was successfully created.' }
 
       else
-        
         format.html { render action: "new" }
         format.json { render json: @kit.errors, status: :unprocessable_entity }
       end
@@ -49,7 +55,7 @@ class KitsController < ApplicationController
   end
 
   def update
-    @kit = Kit.new(params[:kit])
+    @kit = Kit.find(params[:id])
     
     respond_to do |format|
       if @kit.update_attributes(params[:kit])
@@ -58,7 +64,6 @@ class KitsController < ApplicationController
         format.html { render action: "edit" }
       end
     end
-
   end
 
   def search

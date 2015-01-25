@@ -14,8 +14,6 @@ class KitAddIn < ActiveRecord::Migration
       t.text        :description
       t.boolean     :insurance_required
       t.string      :location
-      
-      t.integer     :kit_id
 
       t.float       :latitude
       t.float       :longitude

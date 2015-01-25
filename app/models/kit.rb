@@ -10,12 +10,14 @@ class Kit < ActiveRecord::Base
   #validations
   validates :category, :presence => {:message => 'Please input a category'}
   validates :kind, :presence => {:message => 'Please input a type'}
-  validates :insurance_required, :presence => {:message => 'Please let us know if you would like a borrower to have insurance'}
+  
 
   #ownership
   has_many :rentals
-  has_many :kit_ratings
-  has_many :kit_photos
+  has_many :kit_ratings, dependent: :destroy
+  has_many :kit_photos, dependent: :destroy
   belongs_to :user
+
+  accepts_nested_attributes_for :kit_photos
 
 end

@@ -3,9 +3,8 @@
   .row
     .row
       %fieldset.field-radius
-        %legend.kitshare-blue.field-radius Kit Photos (TEMP IMAGE):
-        %ul.small-block-grid-3.large-block-grid-5
-          %li
+        %legend.kitshare-blue.field-radius Kit Photos :
+        = file_field_tag "kit_photos[]", type: :file, multiple: true
 
         / light box from Foundation? Need to consider upload as well
     .row{"data-equalizer" => ""}

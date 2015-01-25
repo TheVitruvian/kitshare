@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(:version => 20141102125337) do
     t.text     "description"
     t.boolean  "insurance_required"
     t.string   "location"
-    t.integer  "kit_id"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at",         :null => false
