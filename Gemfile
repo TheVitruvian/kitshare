@@ -20,6 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'gritter', '~> 1.1.0'
 gem 'mailboxer'
 gem 'foundation-rails'
 gem "haml-rails"

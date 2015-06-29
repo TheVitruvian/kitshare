@@ -3,9 +3,8 @@
 .contain-to-grid.sticky
   %nav.top-bar{"data-topbar" => true}
     %ul.title-area        
-      %li.name
+      %li.name.animated.fadeInDown
         = link_to(kits_path(view: "new")) do
-          %span.logo-image=image_tag("logo.png", size: "40x40")
           %span.logo="Kitshare"
       %li.toggle-topbar.menu-icon
         %a{:href => "#"}

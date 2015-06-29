@@ -125,6 +125,7 @@ GEM
       sass (>= 3.2.0)
     geocoder (1.2.5)
     gmaps4rails (2.1.2)
+    gritter (1.1.0)
     haml (4.0.5)
       tilt
     haml-rails (0.4)
@@ -319,6 +320,7 @@ DEPENDENCIES
   foundation-rails
   geocoder
   gmaps4rails
+  gritter (~> 1.1.0)
   haml-rails
   html2haml
   jquery-fileupload-rails

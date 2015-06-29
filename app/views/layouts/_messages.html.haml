@@ -1,6 +1,8 @@
 -# Rails flash messages styled for Zurb Foundation
-- flash.each do |name, msg|
-  - if msg.is_a?(String)
-    %div{:class => "alert-box text-center radius #{name.to_s == 'notice' ? 'info' : 'alert'}", "data-alert" => ""}
-      = content_tag :div, msg
-      %a.close{:href => "#"} &times;
+= js add_gritter(flash[:notice])
+/ - flash.each do |name, msg|
+/   - if msg.is_a?(String)
+/     %div{:class => "alert-box text-center radius #{name.to_s == 'notice' ? 'info' : 'alert'}", "data-alert" => ""}
+
+/       = content_tag :div, msg
+/       %a.close{:href => "#"} &times;

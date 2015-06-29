@@ -15,6 +15,7 @@
 //= require jquery-fileupload/basic
 //= require foundation
 //= require underscore
+//= require gritter
 //= require gmaps/google
 //= require_tree .
 

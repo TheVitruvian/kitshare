@@ -38,6 +38,7 @@ class KitsController < ApplicationController
           params[:kit_photos].each do |picture|
             @kit.kit_photos.create(image: picture)
             
+            binding.pry
           end
 
         end

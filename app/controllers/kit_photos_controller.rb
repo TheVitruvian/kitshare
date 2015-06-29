@@ -4,6 +4,7 @@ class KitPhotosController < ApplicationController
 
     @kit_photo = KitPhoto.new(params[:image])
     @kit_photo.save
+    
   
   end
 

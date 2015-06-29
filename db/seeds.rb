@@ -1,4 +1,4 @@
-
+        
 User.delete_all
 Kit.delete_all
 Rental.delete_all
@@ -13,7 +13,8 @@ Nunc mattis velit in turpis efficitur, sed vestibulum mi pharetra. Fusce pharetr
 
 user2 = User.create!(user_name: "Neha", first_name: "Neha", last_name: "Shah", address: "123 Poo Street", postcode: "P00 4U", profile_picture: nil, email: "neha.shah@whateva.com", password: "password")
 
-kit1 = Kit.create!(category: "Skiing", 
+kit1 = Kit.create!(category: "Skiing",
+                                title: "Kit1",
                                 kind: "Skis", 
                                 daily_price: 30, 
                                 weekly_price: 90, 
@@ -23,6 +24,7 @@ kit1 = Kit.create!(category: "Skiing",
                                 insurance_required: true, 
                                 location: "SW120DF")
 kit2 = Kit.create!(category: "Skiing", 
+                                title: "Kit2",
                                 kind: "Skis", 
                                 daily_price: 30, 
                                 weekly_price: 90, 
