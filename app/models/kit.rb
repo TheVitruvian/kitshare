@@ -11,6 +11,9 @@ class Kit < ActiveRecord::Base
   validates :category, :presence => {:message => 'Please input a category'}
   validates :kind, :presence => {:message => 'Please input a type'}
   
+  #images
+  mount_uploader :image, ImageUploader
+
 
   #ownership
   has_many :rentals

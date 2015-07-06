@@ -1,82 +1,106 @@
-= simple_form_for(@kit) do |f|
-  .row
-    -@kit.kit_photos.each do |p|
-      =image_tag p.image
-    / lightbox
+.row
+  =render "layouts/profile"
+  .large-8.columns.header-padding.large-offset-1
+    =mail_to "listings@kitshare.org", "Want to rent '#{@kit.title}'?", subject: "#{@kit.title} rental", class: "button expand alert", body: "Hi Kitshare boys! I'd like to rent this please #{link_to}"
+    = simple_form_for(@kit) do |f|
+      .row
+        -@kit.kit_photos.each do |p|
+          =image_tag p.image
+        / lightbox
 
-  /mail to link with body etc populated.
+      /mail to link with body etc populated.
 
-        
-  .row{"data-equalizer" => ""}
-    .large-6.columns
-      .row.collapse
-        %fieldset.field-radius{"data-equalizer-watch" => ""}
-          %legend.kitshare-blue.field-radius Kit Details:
-          .small-3.large-2.columns
-            %span.prefix Title
-          .small-9.large-10.columns
-            = f.text_field :title, disabled: true
-          .small-3.large-2.columns
-            %span.prefix Description
-          .small-9.large-10.columns  
-            = f.text_area :description, :size => '80x10', placeholder: "Optional...", disabled: true
+            
+      .row
+        .row.collapse
+          %fieldset.field-radius
+            %legend.kitshare-blue.field-radius Kit Details:
+            .small-3.large-2.columns
+              %span.prefix Title
+            .small-9.large-10.columns
+              = f.text_field :title, disabled: true
+            .small-3.large-2.columns
+              %span.prefix Description
+            .small-9.large-10.columns  
+              = f.text_area :description, :size => '80x10', placeholder: "Optional...", disabled: true
+
+        .row.collapse
+          %fieldset.field-radius{"data-equalizer-watch" => ""}
+            %legend.kitshare-blue.field-radius Kit Type:
+            .small-3.large-2.columns
+              %span.prefix Category
+            .small-9.large-10.columns
+              = f.text_field :category, disabled: true
+            .small-3.large-2.columns
+              %span.prefix Kind
+            .small-9.large-10.columns
+              = f.text_field :kind, disabled: true
+            .small-3.large-2.columns
+              %span.prefix Type
+            .small-9.large-10.columns
+              = f.text_field :sub_kind, disabled: true
+            .small-3.large-2.columns
+              %span.prefix Condition
+            .small-9.large-10.columns
+              = f.text_field :condition, disabled: true
+      
+      
+        .row.collapse
+          %fieldset.field-radius{"data-equalizer-watch" => ""}
+            %legend.kitshare-blue.field-radius Pricing details:
+            .small-3.large-2.columns
+              %span.prefix Daily
+            .small-9.large-10.columns
+              = f.number_field :daily_price, disabled: true
+              / needs to be restricted to +ve and exclude characters HTML 5
+            .small-3.large-2.columns
+              %span.prefix Weekly
+            .small-9.large-10.columns
+              = f.number_field :weekly_price, disabled: true
+            .small-3.large-2.columns
+              %span.prefix Monthly
+            .small-9.large-10.columns
+              = f.number_field :monthly_price, disabled: true
+            / .small-4.columns
+            /   %span.prefix Insurance needed?
+            / .small-8.columns
+            /   = f.check_box :insurance_required, disabled: true
+            /   / get icon.
+      
+        .row.collapse
+          %fieldset.field-radius{"data-equalizer-watch" => ""}
+            %legend.kitshare-blue.field-radius Kit Location:
+            .small-3.large-2.columns
+              %span.prefix Address
+            .small-9.large-10.columns
+              = f.text_field :location, disabled: true
+      
 
 
-    .large-6.columns
-      .row.collapse
-        %fieldset.field-radius{"data-equalizer-watch" => ""}
-          %legend.kitshare-blue.field-radius Kit Type:
-          .small-3.large-2.columns
-            %span.prefix Category
-          .small-9.large-10.columns
-            = f.text_field :category, disabled: true
-          .small-3.large-2.columns
-            %span.prefix Kind
-          .small-9.large-10.columns
-            = f.text_field :kind, disabled: true
-          .small-3.large-2.columns
-            %span.prefix Type
-          .small-9.large-10.columns
-            = f.text_field :sub_kind, disabled: true
-          .small-3.large-2.columns
-            %span.prefix Condition
-          .small-9.large-10.columns
-            = f.text_field :condition, disabled: true
+  = link_to 'Edit', edit_kit_path(@kit)
+  \|
+  = link_to 'Back', kits_path
+
+  :javascript
+      $('#user-rating').raty({ readOnly: true, score: parseFloat($('#user-score').text()) , path: '/assets' });
+      $('#user-score').hide();
     
-  .row{"data-equalizer" => ""}
-    .large-6.columns
-      .row.collapse
-        %fieldset.field-radius{"data-equalizer-watch" => ""}
-          %legend.kitshare-blue.field-radius Pricing details:
-          .small-3.large-2.columns
-            %span.prefix Daily
-          .small-9.large-10.columns
-            = f.number_field :daily_price, disabled: true
-            / needs to be restricted to +ve and exclude characters HTML 5
-          .small-3.large-2.columns
-            %span.prefix Weekly
-          .small-9.large-10.columns
-            = f.number_field :weekly_price, disabled: true
-          .small-3.large-2.columns
-            %span.prefix Monthly
-          .small-9.large-10.columns
-            = f.number_field :monthly_price, disabled: true
-          / .small-4.columns
-          /   %span.prefix Insurance needed?
-          / .small-8.columns
-          /   = f.check_box :insurance_required, disabled: true
-          /   / get icon.
-    .large-6.columns
-      .row.collapse
-        %fieldset.field-radius{"data-equalizer-watch" => ""}
-          %legend.kitshare-blue.field-radius Kit Location:
-          .small-3.large-2.columns
-            %span.prefix Address
-          .small-9.large-10.columns
-            = f.text_field :location, disabled: true
-    
+  :javascript
+    $('#rating1').raty({ readOnly: true, score: parseFloat($('#end-rating1').text()) , path: '/assets' });
+    $('#end-rating1').hide();
 
+  :javascript
+    $('#rating2').raty({ readOnly: true, score: parseFloat($('#end-rating2').text()) , path: '/assets' });
+    $('#end-rating2').hide();
 
-= link_to 'Edit', edit_kit_path(@kit)
-\|
-= link_to 'Back', kits_path
+  :javascript
+    $('#rating3').raty({ readOnly: true, score: parseFloat($('#end-rating3').text()) , path: '/assets' });
+    $('#end-rating3').hide();
+
+  :javascript
+    $('#given-rating').raty({half: true, scoreName: 'endorsement[rating]', path: '/assets'})
+
+  :javascript
+    $('#new_endorsement').submit(function(){
+      $('#rating').val(($('#given-rating').raty('score')));
+    });

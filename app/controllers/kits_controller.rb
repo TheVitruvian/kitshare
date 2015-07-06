@@ -17,6 +17,8 @@ class KitsController < ApplicationController
 
   def show
     @kit = Kit.find params[:id]
+    @user = @kit.user
+    
 
     respond_to do |format|
       format.html
@@ -38,7 +40,7 @@ class KitsController < ApplicationController
           params[:kit_photos].each do |picture|
             @kit.kit_photos.create(image: picture)
             
-            binding.pry
+            
           end
 
         end

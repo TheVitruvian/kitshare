@@ -14,7 +14,7 @@
       = "#{@user.user_name} &raquo".html_safe
       #drop.f-dropdown.content{"aria-hidden" => "true", "data-dropdown-content" => "", :tabindex => "-1"}
         -if @user.last_3_endorsements.present?
-          - @endorsements.each_with_index do |e, i|
+          - @user.endorsements.each_with_index do |e, i|
             .rating-hide{:id => "end-rating#{i+1}"}
               = e["rating"]
             .rating-show.text-center{:id => "rating#{i+1}"}
